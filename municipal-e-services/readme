@@ -1,0 +1,13 @@
+put this in htdocs first
+impport the database 
+
+search localhost/municipal-e-services/login.php
+or localhost/municipal-e-services/register.php to create resident acc
+
+resident acc: 
+    email: jerome@gmail.com
+    pass: jerome
+admin acc: 
+    email: pepepmjegano@gmail.com
+    pass: peps
+

@@ -1,0 +1,66 @@
+👨‍💼 Admin Core Functions (Role ID = 1)
+✅ 1. Admin Dashboard
+Summary of applications (counts per status).
+
+Quick navigation to all management areas.
+
+✅ 2. Manage All Applications
+View all applications from any resident.
+
+Search/filter by:
+
+Type
+
+Status
+
+Resident Name
+
+Submission Date
+
+View application details:
+
+Application type, purpose, status.
+
+Extra fields per application type.
+
+Uploaded documents (downloadable).
+
+QR code if already approved.
+
+Update Status:
+
+Change application status to:
+
+Filed
+
+Under Review
+
+Approved ✅
+
+Rejected ✅
+
+Returned (optional)
+
+Add/update remarks explaining approval/rejection.
+
+✅ 3. QR Code Generation
+When approving:
+
+System auto-generates QR code for document verification.
+
+QR links to verification endpoint (optional).
+
+✅ 4. Manage Staff (Optional Module)
+Register staff accounts (already built).
+
+View list of staff.
+
+Reset passwords (optional).
+
+✅ 5. Notifications to Residents
+When application status changes:
+
+Resident receives notification (already in system).
+
+Optional email/SMS in future.
+

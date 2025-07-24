@@ -1,0 +1,83 @@
+✅ 1. Session Access Control Setup
+Ensure every protected page (admin or resident) checks session validity and role:
+
+/dashboard.php → residents (role_id = 3)
+
+/admin_dashboard.php → admins (role_id = 1)
+
+✅ Already done.
+
+✅ 2. Application Submission by Resident
+Resident can:
+
+Choose application type (Business Permit, Barangay Clearance, etc.)
+
+Enter purpose
+
+Upload documents
+
+Submit the form
+
+⚙️ Store in applications and documents tables.
+
+✅ 3. Real-Time Status Tracker
+Resident can:
+
+View list of their applications
+
+See current status (Filed, Under Review, Approved)
+
+See remarks if rejected/returned
+
+⚙️ Pull data from applications + statuses.
+
+✅ 4. Admin Dashboard – Review Applications
+Admin can:
+
+View pending applications
+
+Open uploaded documents
+
+Add remarks, update status (Approved, Rejected, Needs Revision)
+
+Trigger QR code generation
+
+⚙️ Update applications, statuses, and create qr_codes.
+
+✅ 5. QR Code Generation & Verification
+After approval:
+
+System generates a QR with encoded app ID or verification URL
+
+Residents or third parties can scan to validate authenticity
+
+⚙️ Use qr_codes table.
+
+✅ 6. Notifications
+Resident gets:
+
+Notification when status is updated or app is approved
+
+Display messages in /dashboard.php
+
+⚙️ Store in notifications table.
+
+✅ 7. Reports and Analytics (Admin Only)
+Admin can:
+
+View counts: Total applications, pending, approved
+
+Filter by date/type/status
+
+Export reports
+
+⚙️ Use SQL + charts (e.g. Chart.js).
+
+✅ 8. Optional: Payment Integration
+Show fee based on type
+
+Upload proof OR integrate GCash/API
+
+Update payment status
+
+⚙️ Use payments table.

@@ -1,0 +1,159 @@
+Great! Let's do this in two parts:
+
+---
+
+## 🛠 Part A: Backend – Send Notifications
+
+We'll modify your PHP controller so that key actions automatically create notification records.
+
+### 1. Remarks Update (Staff/Status Change)
+
+Include this snippet after a successful status update in your `update_application_status` handler:
+
+```php
+// Assume $app_user_id is the resident’s user_id
+$msg = "Staff updated the status of your application #{$app_id} to '{$current_status}'";
+$stmt_notif = $mysqli->prepare("INSERT INTO notifications (user_id, message) VALUES (?, ?)");
+$stmt_notif->bind_param("is", $app_user_id, $msg);
+$stmt_notif->execute();
+$stmt_notif->close();
+```
+
+### 2. Document Upload / Re-upload Request
+
+After uploading files or saving re-upload requests in your `upload_additional_documents` handler, add:
+
+```php
+if ($uploaded_files_count > 0) {
+    $msg = "Staff uploaded {$uploaded_files_count} new document(s) for application #{$app_id}.";
+    $stmt_n = $mysqli->prepare("INSERT INTO notifications (user_id, message) VALUES (?, ?)");
+    $stmt_n->bind_param("is", $app_user_id, $msg);
+    $stmt_n->execute();
+    $stmt_n->close();
+}
+
+if ($reupload_message != '') {
+    $msg2 = "Re‑upload requested for application #{$app_id}: {$reupload_message}";
+    $stmt_n2 = $mysqli->prepare("INSERT INTO notifications (user_id, message) VALUES (?, ?)");
+    $stmt_n2->bind_param("is", $app_user_id, $msg2);
+    $stmt_n2->execute();
+    $stmt_n2->close();
+}
+```
+
+### 3. Payment Completion (If applicable)
+
+After recording a successful payment:
+
+```php
+$app_id = intval($_POST['app_id']);
+$amount = floatval($_POST['amount']);
+$stmt_user = $mysqli->prepare("SELECT user_id FROM applications WHERE app_id = ?");
+$stmt_user->bind_param("i", $app_id);
+$stmt_user->execute();
+$u = $stmt_user->get_result()->fetch_assoc();
+$stmt_user->close();
+
+$msg = "Your payment of ₱{$amount} for application #{$app_id} has been received.";
+$stmt_n = $mysqli->prepare("INSERT INTO notifications (user_id, message) VALUES (?, ?)");
+$stmt_n->bind_param("is", $u['user_id'], $msg);
+$stmt_n->execute();
+$stmt_n->close();
+```
+
+---
+
+## 🌐 Part B: Frontend – Display Notifications
+
+Add this JS code in your staff (or resident) dashboard so notifications appear dynamically.
+
+### HTML
+
+Place in your page, e.g.:
+
+```html
+<div id="notifContainer">
+  <span id="notifCount">0</span>
+  <div id="notifList" style="display:none;"></div>
+</div>
+```
+
+### JS
+
+```js
+async function fetchNotifications() {
+  try {
+    const res = await fetch('../controllers/NotificationController.php?action=fetch_unread');
+    const data = await res.json();
+    if (!data.success) return;
+
+    document.getElementById('notifCount').textContent = data.notifications.length;
+    const list = document.getElementById('notifList');
+    list.innerHTML = '';
+    if (data.notifications.length === 0) {
+      list.style.display = 'none';
+    } else {
+      list.style.display = 'block';
+      data.notifications.forEach(n => {
+        const div = document.createElement('div');
+        div.textContent = n.message;
+        div.onclick = async () => {
+          await markNotificationRead(n.notif_id);
+          fetchNotifications();
+        };
+        list.appendChild(div);
+      });
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function markNotificationRead(id) {
+  await fetch('../controllers/NotificationController.php?action=mark_read&notif_id=' + id);
+}
+
+setInterval(fetchNotifications, 30000);
+window.onload = fetchNotifications;
+```
+
+### PHP – `NotificationController.php`
+
+```php
+<?php
+session_start();
+require '.../config/database.php';
+header('Content-Type: application/json');
+
+if (!isset($_SESSION['user_id'])) {
+  echo json_encode(['success' => false]);
+  exit;
+}
+
+$uid = $_SESSION['user_id'];
+$act = $_GET['action'] ?? '';
+
+if ($act === 'fetch_unread') {
+  $res = $mysqli->query("SELECT notif_id, message FROM notifications WHERE user_id = $uid AND seen = 0 ORDER BY created_at DESC");
+  $rows = $res->fetch_all(MYSQLI_ASSOC);
+  echo json_encode(['success' => true, 'notifications' => $rows]);
+}
+
+if ($act === 'mark_read' && isset($_GET['notif_id'])) {
+  $nid = intval($_GET['notif_id']);
+  $mysqli->query("UPDATE notifications SET seen = 1 WHERE notif_id = $nid AND user_id = $uid");
+  echo json_encode(['success' => true]);
+}
+```
+
+---
+
+### ✅ Summary
+
+Now your system will:
+
+* Automatically send notifications on *status changes*, *document uploads*, and *re‑upload requests*.
+* Frontend fetches unread notifications every 30s.
+* Users see the number and list of notifications, and can mark them read by clicking.
+
+Let me know if you want to tweak UI styling tools or review more event triggers!

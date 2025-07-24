@@ -1,0 +1,18 @@
+Tables and their essentials functions 
+users – Stores all registered users (residents, staff, admin)
+
+applications – Records of submitted applications
+
+documents – Uploaded files linked to applications
+
+statuses – Tracks the progress/stage of each application
+
+payments – Payment tracking
+
+notifications – System-generated alerts for users
+
+roles – User roles (admin, staff, resident)
+
+qr_codes – Stores generated QR details for verification
+
+logs (optional) – Activity logs for audit purposes

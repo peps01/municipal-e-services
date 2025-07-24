@@ -1,0 +1,35 @@
+/municipal-e-services
+│
+├── index.php
+├── login.php
+├── logout.php
+├── register.php
+├── dashboard.php
+│
+├── /controllers
+│   └── applicationController.php
+│   └── userController.php
+│   └── adminController.php
+│   └── notificationController.php
+│
+├── /models
+│   └── User.php
+│   └── Application.php
+│
+├── /views
+│   └── form_application.php
+│   └── status_tracker.php
+│   └── application_details.php
+│   └── staff_dashboard.php
+│   └── verification.php
+│   └── admin_dashboard.php
+│
+├── /assets
+│   ├── /css
+│   └── /js
+├── /logs
+├── /uploads
+│   └── (scanned docs)
+│
+└── /config
+    └── database.php

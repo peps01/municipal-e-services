@@ -1,0 +1,97 @@
+Great question! In **Philippine local government units (LGUs)** — especially at the **municipal** level — the typical municipal employees involved in administrative and e-services processes generally fall into these categories:
+
+---
+
+### Common Municipal Employees/Roles in Philippine LGUs
+
+1. **Municipal Administrator / Municipal Manager**
+
+   * Oversees daily operations and administration of the municipality.
+   * Sometimes involved in overall supervision of departments.
+
+2. **Municipal Secretary / Local Government Secretary**
+
+   * Handles documentation, records, and official communications.
+
+3. **Municipal Treasurer**
+
+   * Manages municipal funds, fees, and collections.
+
+4. **Municipal Planning and Development Coordinator (MPDC)**
+
+   * Plans local development programs and projects.
+
+5. **Municipal Engineer**
+
+   * Oversees infrastructure projects.
+
+6. **Municipal Health Officer**
+
+   * Responsible for health services.
+
+7. **Municipal Social Welfare and Development Officer (MSWDO)**
+
+   * Handles social services.
+
+---
+
+### Frontline Staff / Office Personnel (most relevant for your e-services system)
+
+* **Clerks / Administrative Assistants / Data Entry Staff**
+
+  * Receive, encode, and process documents/applications.
+  * Often the first point of contact for residents’ transactions.
+
+* **Records Officer / Document Controller**
+
+  * Maintain records, filing, and retrieval of documents.
+
+* **Processing Officers / Processors**
+
+  * Review submitted applications and documents.
+  * Check completeness and validity.
+  * Prepare files for approval.
+
+* **Cashiers / Payment Collectors**
+
+  * Handle payments, receipts, and fees.
+
+---
+
+### Supervisory and Decision-Making Roles
+
+* **Municipal Administrator or Department Head**
+
+  * Supervises staff and oversees operations.
+
+* **Approving Officials (Barangay Captain, Mayor, or designated officers)**
+
+  * Authorized to **approve or reject** applications (e.g., permits, clearances).
+  * Issue official documents and certificates.
+
+---
+
+### In Summary — Typical Workflow Roles
+
+| Role                                           | Responsibility                            | Can Approve?          |
+| ---------------------------------------------- | ----------------------------------------- | --------------------- |
+| Clerk / Staff                                  | Receive and process applications          | Usually No            |
+| Processing Officer                             | Review and verify applications            | Usually No or Limited |
+| Department Head / Admin                        | Final review and approval of applications | Yes                   |
+| Authorized Officials (Mayor, Barangay Captain) | Official approvers                        | Yes                   |
+
+---
+
+### What This Means for Your System
+
+* **Staff (clerks, processors)**: Best assigned to **process, review, and prepare** applications.
+* **Admins / Dept Heads**: Should have **approval/rejection authority**.
+* **Residents**: File requests and track statuses.
+
+---
+
+If your municipality wants a more streamlined process, some municipalities **delegate limited approval powers** to senior or authorized staff but usually with oversight or audit trails.
+
+---
+
+**Would you like me to help map these roles into your user management and permission system?**

@@ -1,0 +1,72 @@
+Thanks for sharing your code and setup! Based on the project proposal, your current staff frontend/backend/JS handles:
+
+* Staff login & access control
+* Viewing/searching applications
+* Viewing application details with documents and QR code (if approved)
+
+---
+
+### What your staff **can do now**:
+
+* See all applications
+* Search applications by type/status
+* View detailed info & docs for each application
+
+---
+
+### What’s still **missing or recommended** for staff to be fully functional as processors (not approvers):
+
+| Feature                                              | Why it’s important                                                                                               | Suggested implementation notes                                                                                     |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Mark application status: e.g., "Under Review"**    | Staff usually marks the progress or stage of an application to indicate it’s being processed                     | Add UI buttons or dropdown for staff to change status from “Filed” to “Under Review” or “Returned for corrections” |
+| **Add or update remarks**                            | Staff adds notes about issues, missing docs, or comments for admins or residents                                 | Add a textarea/input in the details modal to update remarks                                                        |
+| **Forward applications to Admin**                    | Staff prepares applications for final review by admins; could be implicit when changing status to "Under Review" | Change status to signal admins an application needs approval                                                       |
+| **Upload additional documents or request re-upload** | Sometimes staff needs more documents or replacements                                                             | Allow staff to add documents or send notifications requesting updates                                              |
+| **Notifications to residents**                       | Notify residents about status changes, remarks, or missing documents                                             | Automate email/SMS or in-app notifications when staff updates application status/remarks                           |
+| **Basic reporting**                                  | Staff may need to generate or view reports of applications processed, pending, etc.                              | Dashboard widgets or downloadable reports by date/status                   
+
+
+Workflow for Staff in the System:
+Login – Staff will securely log in using their credentials.
+
+View Applications – Staff will have a dashboard showing all applications that require processing.
+
+Process Application – Review and verify the submitted documents, check completeness, and make necessary remarks.
+
+Update Status – The status will be updated to "Under Review", "Returned", "Approved", or "Rejected".
+
+Send Notifications – Notify residents if additional documents are required, or if their application is accepted or rejected.
+
+Forward to Admin – Once processed, applications will be forwarded to admin for final approval or action.
+
+Generate Reports – Staff may generate internal reports to track processing times or application volumes.
+
+👷‍♂️ Who Are “Staff” in a Municipality?
+Frontline staff like clerks, records officers, or processing officers.
+
+Their responsibilities:
+
+Check submitted documents.
+
+Validate information.
+
+Set applications to “Under Review” once evaluated.
+
+Leave remarks (e.g., missing documents, corrections needed).
+
+Prepare applications for Admin approval.
+
+They act as processors, not final approvers.
+
+👨‍💼 Who Are “Admin” in a Municipality?
+Department heads or authorized officials (Barangay Captain, Mayor’s Office).
+
+Their responsibilities:
+
+Final review of applications.
+
+Approve or Reject applications.
+
+Issue official documents.
+
+Manage system accounts/users.

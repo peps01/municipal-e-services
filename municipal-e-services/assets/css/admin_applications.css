@@ -1,0 +1,337 @@
+/* Prevent Scrolling Entirely */
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+/* Background Styling */
+
+body {
+    background: url('/municipal-e-services/assets/icons/bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    color: #333;
+}
+
+
+/* Overlay Effect */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+
+/* Center Container */
+
+.tracker-container {
+    width: 90vw;
+    max-width: 800px;
+    height: 90vh;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+
+/* Search Input */
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+
+/* Select */
+
+
+/* select {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 300px;
+} */
+
+
+/* Scrollable Application List */
+
+#applicationList {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 0.5rem;
+}
+
+
+/* Optional: Style Scrollbar */
+
+#applicationList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#applicationList::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#applicationList::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/* Application Card */
+
+.application-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #004aad;
+}
+
+.application-card p {
+    margin: 0.5rem 0;
+}
+
+.application-card strong {
+    color: #004aad;
+}
+
+
+/* Back Link */
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Headings */
+
+h2 {
+    text-align: center;
+    color: #004aad;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.home-link {
+    position: fixed;
+    top: 20px;
+    margin-bottom: 1rem;
+    left: 20px;
+    z-index: 1000;
+    display: inline-block;
+    color: #004aad;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #004aad;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.home-link:hover {
+    background: #004aad;
+    color: white;
+    text-decoration: underline;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Modal Styles (Keep as-is or adjust) */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+
+/* Modal Content Styling */
+
+.modal-content {
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-content h3 {
+    font-size: 1.3rem;
+    color: #004aad;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content h4 {
+    font-size: 1.1rem;
+    color: #004aad;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: #004aad;
+    margin-top: 0.5rem;
+}
+
+.modal-content select,
+.modal-content textarea,
+.modal-content input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #f9f9f9;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content li {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.modal-content a {
+    color: #004aad;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.modal-content a:hover {
+    text-decoration: none;
+    color: #002f6c;
+}
+
+.modal-content img {
+    display: block;
+    max-width: 150px;
+    margin: 1rem auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+/* Buttons inside modal */
+
+.modal-content button,
+#saveChangesBtn,
+#uploadDocsBtn {
+    background: #004aad;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover,
+#saveChangesBtn:hover,
+#uploadDocsBtn:hover {
+    background: #002f6c;
+}
+
+.button-link {
+    background: none;
+    border: none;
+    color: #004aad;
+    font-style: italic;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.button-link:hover {
+    color: #002f6c;
+    text-decoration: none;
+}
+
+.close-btn {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.5rem 1rem;
+    background: #004aad;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.close-btn:hover {
+    background: #002f6c;
+}
