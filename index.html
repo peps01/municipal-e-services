@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Municipal</title>
+</head>
+
+<body>
+
+    <!-- Nav Section -->
+    <div class="ct-nav">
+        <nav>
+            <ul>
+                <li><a href="">Municipal E-Services</a></li>
+                <li><a href="backend/home.html">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Contact/Support</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="#" class="login-link">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Login error message  -->
+    <div class="register-message error" id="errorMessage"></div>
+
+    <!-- Login Popup-->
+    <div class="login-form" style="display: none;">
+        <form action="auth/login.php" method="POST">
+            <input type="text" name="email" placeholder="Email" class="login-input">
+            <input type="password" name="password" placeholder="Password" class="login-input">
+            <button class="login-btn">Login</button>
+            <div class="register-link">
+                <a href="#" class="register-popup-link">Register</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Register form -->
+    <div id="registerPopup" class="register-popup" style="display: none;">
+        <div class="register-form">
+            <span id="registerClose" class="register-close">&times;</span>
+            <h2>Create Account</h2>
+            <form id="registerForm" method="POST" action="">
+                <input type="text" name="first_name" placeholder="First Name" required class="register-input">
+                <input type="text" name="last_name" placeholder="Last Name" required class="register-input">
+                <input type="email" name="email" placeholder="Email Address" required class="register-input">
+                <input type="password" name="password" placeholder="Password" required class="register-input">
+                <input type="text" name="phone" placeholder="Phone Number" required class="register-input">
+                <input type="text" name="barangay" placeholder="Barangay" required class="register-input">
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerMsg" class="register-message"></div>
+
+    <!-- Hero section -->
+    <div class="ct-fpage">
+        <h1>Welcome to Capoocan E-Services</h1>
+        <h2>Your one stop shop for city Services and Info</h2>
+        <div>
+            <button>Pay Bills</button>
+            <button>Apply Permit</button>
+            <button>Report Issues</button>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <h1>Services</h1>
+    <div class="featured-wrapper">
+
+        <button class="scroll-btn left" onclick="scrollServices(-1)">❮</button>
+
+        <div class="featured-services" id="serviceContainer">
+
+            <div class="service-card">
+                <h2>Pay Bills</h2>
+                <p>Pay your bills online</p>
+                <a href="">Learn more</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Civil Registry Service</h2>
+                <p>Request official civil documents</p>
+                <a href="">Learn more</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Barangay Services</h2>
+                <p>Request barangay certificates online</p>
+                <a href="">Learn more</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Business & Permits</h2>
+                <p>Apply or renew permits</p>
+                <a href="">Learn more</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Community Assistance & Social Services</h2>
+                <p>Request for Residency Certificate</p>
+                <a href="">Learn more</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Report a Concern</h2>
+                <p>Report community issues online</p>
+                <a href="">Learn more</a>
+            </div>
+
+            <div class="service-card">
+                <h2>Health Services</h2>
+                <p>Access municipal health services</p>
+                <a href="">Learn more</a>
+            </div>
+
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollServices(1)">❯</button>
+
+    </div>
+
+    <!-- News and Event Section -->
+    <div class="news-events-section">
+
+        <h1>News & Events in the Community</h1>
+
+        <div class="news-events">
+
+            <div class="news-card">
+                <h3>Town Hall Meeting</h3>
+                <p>Join the upcoming municipal town hall meeting this Saturday.</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="news-card">
+                <h3>Community Clean-Up Drive</h3>
+                <p>Residents are invited to participate in our clean-up event.</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="news-card">
+                <h3>Road Repair Notice</h3>
+                <p>Main street repairs will begin next week.</p>
+                <a href="#">Read More</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- How do I Section -->
+    <div class="how-section">
+
+        <h1>How Do I...</h1>
+
+        <div class="how-guides">
+
+            <div class="guide-card">
+                <h3>Apply for a Business Permit</h3>
+                <p>Follow our step-by-step guide for business registration.</p>
+                <a href="#">View Guide</a>
+            </div>
+
+            <div class="guide-card">
+                <h3>Pay Property Tax</h3>
+                <p>Learn how to pay your taxes online quickly.</p>
+                <a href="#">View Guide</a>
+            </div>
+
+            <div class="guide-card">
+                <h3>Request Barangay Clearance</h3>
+                <p>See the full process for requesting clearance.</p>
+                <a href="#">View Guide</a>
+            </div>
+
+            <div class="guide-card">
+                <h3>Report Community Issues</h3>
+                <p>Submit reports about road damage or public concerns.</p>
+                <a href="#">View Guide</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+
+        <div class="footer-container">
+
+            <!-- About -->
+            <div class="footer-section">
+                <h3>Capoocan E-Services</h3>
+                <p>Your one-stop portal for municipal services, permits, community updates, and public information.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">News & Events</a></li>
+                    <li><a href="">How Do I</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-section">
+                <h3>Popular Services</h3>
+                <ul>
+                    <li><a href="">Pay Bills</a></li>
+                    <li><a href="">Civil Registry Services</a></li>
+                    <li><a href="">Barangay Services</a></li>
+                    <li><a href="">Business & Permits</a></li>
+                    <li><a href="">Community Assistance & Social Services</a></li>
+                    <li><a href="">Health Services</a></li>
+                    <li><a href="">Report a Concern</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📍 Capoocan Municipal Hall</p>
+                <p>📞 (053) 123-4567</p>
+                <p>✉️ support@capoocan.gov.ph</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Capoocan Municipal Government | All Rights Reserved</p>
+        </div>
+
+    </div>
+</body>
+<script src="assets/js/index.js"></script>
+
+</html>

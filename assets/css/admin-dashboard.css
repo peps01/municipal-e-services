@@ -1,0 +1,172 @@
+/* Global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f4f6f9;
+}
+
+
+/* Sidebar */
+
+.admin-nav {
+    width: 260px;
+    height: 100vh;
+    background: #1f2937;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+/* User Info */
+
+.user-info {
+    text-align: center;
+}
+
+#profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #4f46e5;
+}
+
+.user-info h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.role {
+    font-size: 13px;
+    opacity: .7;
+}
+
+
+/* Divider */
+
+.nav-divider {
+    border: none;
+    height: 1px;
+    background: #374151;
+    margin: 20px 0;
+}
+
+
+/* Navigation */
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+nav ul li a:hover {
+    background: #374151;
+}
+
+
+/* menu area expands */
+
+.menu {
+    flex: 1;
+    overflow-y: auto;
+    /* makes menu scrollable if it grows */
+}
+
+
+/* Dropdown Parent */
+
+.dropdown {
+    position: relative;
+}
+
+
+/* Dropdown Menu */
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background: #111827;
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+
+/* Dropdown Items */
+
+.dropdown-menu li a {
+    font-size: 14px;
+    padding: 10px;
+    display: block;
+}
+
+
+/* Show Dropdown */
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+
+/* Logout */
+
+.logout-section {
+    margin-top: auto;
+}
+
+.logout-btn {
+    display: block;
+    text-align: center;
+    background: #ef4444;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+}
+
+
+/* Main Content */
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.main-content h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    color: #555;
+}
